@@ -675,6 +675,9 @@ parse_type_hash_from_user_data(
   size_t user_data_size,
   rosidl_type_hash_t & type_hash_out)
 {
+  if (user_data_size == 0) {
+    return RMW_RET_OK;
+  }
   RMW_CHECK_ARGUMENT_FOR_NULL(user_data, RMW_RET_INVALID_ARGUMENT);
   std::vector<uint8_t> udvec(user_data, user_data + user_data_size);
   auto key_value = rmw::impl::cpp::parse_key_value(udvec);
