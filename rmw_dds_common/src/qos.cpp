@@ -676,6 +676,7 @@ parse_type_hash_from_user_data(
   rosidl_type_hash_t & type_hash_out)
 {
   if (user_data_size == 0) {
+    type_hash_out = rosidl_get_zero_initialized_type_hash();
     return RMW_RET_OK;
   }
   RMW_CHECK_ARGUMENT_FOR_NULL(user_data, RMW_RET_INVALID_ARGUMENT);
